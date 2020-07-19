@@ -1,0 +1,7 @@
+h1 products
+form(action="/products/search", method="GET")
+    input(type="text" name='q')
+    button Tìm kiếm
+ul
+    each product in products
+        li= product.name
