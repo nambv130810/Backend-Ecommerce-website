@@ -1,0 +1,31 @@
+extends ../layouts/common
+block content
+    
+    .container
+        .card.add-form
+            .card-header 
+                h5 Sửa thông tin sản phẩm
+            .card-body
+                form.addProdForm(action="/products/" + product.id + "/edit", method="POST")
+                    div
+                        label Tên sản phẩm
+                            input.form-control(type="text", name="name", value=product.name)
+                    div
+                        label Ảnh  
+                            input(type="file", name="imgUrl")
+                    div
+                        label Mô tả
+                            input.form-control(type="text", name="description", value=product.description)
+                    div
+                        label Giá
+                            input.form-control(type="text", name="price", value=product.price)
+                    div
+                        label Số lượng
+                            input.form-control(type="text", name="quantity", value=product.quantity)
+                    div.mb-2    
+                        label.mr-2(for='cate_id') Chọn danh mục:  
+                        select#cars(name='cate_id')
+                            each cate in categories
+                                option(value= cate.cate_id)= cate.name
+                    button.btn.btn-info Cập nhật
+            .card-footer 

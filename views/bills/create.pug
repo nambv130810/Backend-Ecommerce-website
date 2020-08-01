@@ -1,0 +1,19 @@
+extends ../layouts/common
+block content
+    
+    .container
+        .card.add-form
+            .card-header Thêm danh mục mới
+            .card-body
+                if errors
+                    each err in errors
+                        alert.alert-danger.d-block= err
+                form(action="/bills/create", method="POST")
+                    div
+                        label Ngày lập
+                            input.form-control(type="text", name="date", value=values ? values.date : '')
+                    div
+                        label Mã khách hàng
+                            input.form-control(type="text", name="user_id", value=values ? values.username : '')
+                    button.btn.btn-info Thêm
+            .card-footer 

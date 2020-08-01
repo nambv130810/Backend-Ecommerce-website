@@ -1,0 +1,16 @@
+extends ../layouts/common
+block content
+    .container
+        .card.add-form
+            .card-header 
+                h5 Sửa thông tin hóa đơn
+            .card-body
+                form.addProdForm(action="/bills/" + bill.id + "/edit", method="POST")
+                    div
+                        label Ngày lập
+                            input.form-control(type="text", name="date", value= bill.date)
+                    div
+                        label Mã khách hàng
+                            input.form-control(type="text", name="username", value= bill.user_id)
+                    button.btn.btn-info Cập nhật
+            .card-footer 

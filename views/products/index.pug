@@ -1,7 +1,35 @@
-h1 products
-form(action="/products/search", method="GET")
-    input(type="text" name='q')
-    button Tìm kiếm
-ul
-    each product in products
-        li= product.name
+extends ../layouts/common
+block content
+    p.title Quản lý sản phẩm
+    .main
+        a(href="/products/create") Thêm sản phẩm mới
+        form(action="/products/search", method="GET")
+            input(type="text" name='q' placeholder="Tên sản phẩm")
+            button.btn.btn-info(type='submit') Tìm kiếm
+        table.table
+                thead
+                    tr
+                        th Mã sản phẩm
+                        th Tên sản phẩm
+                        th Ảnh
+                        th Mô tả
+                        th Giá
+                        th Số lượng
+                        th Danh mục
+                        th Các thao tác
+                tbody
+                    each prod in products
+                        tr
+                            td= prod.id.slice(0, 6) + '...'
+                            td= prod.name
+                            td
+                                img(src='' + prod.imgUrl width="40px")
+                            td= prod.description.slice(0, 6) + '...'
+                            td= prod.price
+                            td= prod.quantity
+                            td= prod.cate_id
+                            td
+                                a.btn.btn-success.mr-1(href="/products/" + prod.id, role='button') Xem
+                                a.btn.btn-warning.mr-1(href="/products/" + prod.id + "/edit", role='button') Sửa
+                                a.btn.btn-danger.mr-1(href="/products/" + prod.id + "/delete", role='button') Xóa
+                                

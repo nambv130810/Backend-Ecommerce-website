@@ -1,0 +1,31 @@
+extends ../layouts/common
+block content
+    p.title Quản lý khách hàng
+    .account-content
+        a(href="/users/create") Tạo tài khoản mới
+        form(action="/users/search", method="GET")
+            input(type="text" name='q' placeholder="Tên người dùng")
+            button.btn.btn-info(type='submit') Tìm kiếm
+        table.table
+            thead
+                tr
+                    th Mã người dùng
+                    th Tên người dùng
+                    th Email
+                    th Mật khẩu
+                    th Địa chỉ
+                    th Điện thoại
+                    th Các thao tác
+            tbody
+                each user in users
+                    tr
+                        td= user.id.slice(0, 6) + '...'
+                        td= user.name
+                        td= user.email.slice(0, 6) + '...'
+                        td= user.password
+                        td= user.address
+                        td= user.phone
+                        td
+                            a.btn.btn-success.mr-1(href="/users/" + user.id, role='button') Xem
+                            a.btn.btn-warning.mr-1(href="/users/" + user.id + "/edit", role='button') Sửa
+                            a.btn.btn-danger.mr-1(href="/users/" + user.id + "/delete", role='button') Xóa

@@ -1,1 +1,24 @@
-h1 Categories works
+extends ../layouts/common
+block content
+    p.title Quản lý danh mục
+    .account-content
+        a(href="/categories/create") Tạo danh mục mới
+        form(action="/categories/search", method="GET")
+            input(type="text" name='q' placeholder="Tên danh mục")
+            button.btn.btn-info(type='submit') Tìm kiếm
+        table.table
+            thead
+                tr
+                    th Mã danh mục
+                    th Tên tên danh mục
+                    th Các thao tác
+            tbody
+                each cate in categories
+                    tr
+                        td= cate.cate_id
+                        td= cate.name
+                        
+                        td
+                            a.btn.btn-success.mr-1(href="/categories/" + cate.id, role='button') Xem
+                            a.btn.btn-warning.mr-1(href="/categories/" + cate.id + "/edit", role='button') Sửa
+                            a.btn.btn-danger.mr-1(href="/categories/" + cate.id + "/delete", role='button') Xóa

@@ -1,0 +1,13 @@
+extends ../layouts/common
+block content
+    .container
+        .card.add-form
+            .card-header 
+                h5 Sửa thông tin danh mục
+            .card-body
+                form.addProdForm(action="/categories/" + category.id + "/edit", method="POST")
+                    div
+                        label Tên danh mục
+                            input.form-control(type="text", name="name", value= category.name)
+                    button.btn.btn-info Cập nhật
+            .card-footer 

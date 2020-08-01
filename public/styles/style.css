@@ -1,0 +1,31 @@
+.title {
+    
+    text-align: center;
+    font-size: 30px;
+}
+.account-content, .main {
+    width: 1200px;
+    margin: 0 auto;
+}
+.account-content button , .btn.btn-info{
+    margin-top: -5px;
+}
+.btn-info {
+    padding: 4px;
+    margin-left: 4px;
+    font-size: 14px;
+}
+.add-form {
+    width: 55%;
+    margin: 10px auto;
+}
+.addProdForm input {
+    width: 474px;
+}
+th, td{
+    text-align: center;
+}
+.login-form label input {
+    width: 458px;
+    margin-bottom: 10px;
+}

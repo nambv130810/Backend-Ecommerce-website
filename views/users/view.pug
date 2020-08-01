@@ -1,0 +1,27 @@
+extends ../layouts/common
+block content
+    p.title Chi tiết người dùng
+    table.table(style="width: 80%; margin: 30px auto")
+        thead
+            tr
+                th Thuộc tính
+                th Giá trị
+        tbody
+            tr
+                td ID
+                td= user.id
+            tr
+                td Tên
+                td= user.name
+            tr
+                td Email
+                td= user.email
+            tr
+                td Mật khẩu
+                td= user.password
+            tr
+                td Địa chỉ
+                td= user.address
+            tr
+                td Điện thoại
+                td= user.phone

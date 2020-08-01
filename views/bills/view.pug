@@ -1,0 +1,29 @@
+extends ../layouts/common
+block content
+    p.title Chi tiết hoá đơn
+    .main
+        form(action="/products/search", method="GET")
+            input(type="text" name='q' placeholder="Tên sản phẩm")
+            button.btn.btn-info(type='submit') Tìm kiếm
+        table.table
+                thead
+                    tr
+                        th Mã hóa đơn
+                        th Mã sản phẩm
+                        th Tên sản phẩm
+                        th Ảnh
+                        th Số lượng mua
+                        th Giá
+                        th Thành tiền
+                tbody
+                    each bill in bills
+                        tr
+                            td= bill.id.slice(0, 6) + '...'
+                            td= bill.product_id.slice(0, 6) + '...'
+                            td #{products.filter(item => item._id == bill.product_id)[0].name}
+                            td
+                                img(src= products.filter(item => item._id == bill.product_id)[0].imgUrl, alt='Product pics', width='40', height='40')
+                            td= bill.quantity
+                            td= bill.price
+                            td= bill.price * bill.quantity + ' vnd'
+        div Tổng tiền: #{bills.reduce((total, item) => total + item.quantity * item.price, 0)} vnd

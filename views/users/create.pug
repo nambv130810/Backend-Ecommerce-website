@@ -1,0 +1,25 @@
+extends ../layouts/common
+block content
+    .container
+        .card.add-form
+            .card-header 
+                h5 Thêm người dùng
+            .card-body
+                form.addProdForm(action="/users/create", method="POST")
+                    div
+                        label Tên
+                            input.form-control(type="text", name="name")
+                    div
+                        label Email
+                            input.form-control(type="text", name="email")
+                    div
+                        label Mật khẩu
+                            input.form-control(type="text", name="password")
+                    div
+                        label Địa chỉ
+                            input.form-control(type="text", name="address")
+                    div
+                        label Số điện thoại
+                            input.form-control(type="text", name="phone")
+                    button.btn.btn-info.mt-2 Thêm
+            .card-footer 

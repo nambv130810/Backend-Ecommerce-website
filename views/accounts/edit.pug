@@ -1,0 +1,16 @@
+extends ../layouts/common
+block content
+    .container
+        .card.add-form
+            .card-header 
+                h5 Sửa thông tin tài khoản
+            .card-body
+                form.addProdForm(action="/accounts/" + account.id + "/edit", method="POST")
+                    div
+                        label Tên tài khoản
+                            input.form-control(type="text", name="name", value=account.name)
+                    div
+                        label Mật khẩu
+                            input.form-control(type="text", name="password", value=account.password)
+                    button.btn.btn-info Thêm
+            .card-footer 

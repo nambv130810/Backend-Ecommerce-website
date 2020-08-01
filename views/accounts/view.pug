@@ -1,0 +1,18 @@
+extends ../layouts/common
+block content
+    p.title Chi tiết tài khoản
+    table.table(style="width: 80%; margin: 30px auto")
+        thead
+            tr
+                th Thuộc tính
+                th Giá trị
+        tbody
+            tr
+                td ID
+                td= account.id
+            tr
+                td Tên tài khoản
+                td= account.name
+            tr
+                td Mật khẩu
+                td= account.password

@@ -1,0 +1,100 @@
+{
+  "products": [
+    {
+      "name": "Iphone 6",
+      "imgUrl": "http://localhost:3000/images/17.jpg",
+      "description": "Tốt trong tầm giá",
+      "price": "5.000.000",
+      "quantity": "20",
+      "category": "Điện thoại di động",
+      "id": "izHwce4nc"
+    },
+    {
+      "name": "Dell Vostro i5 3568",
+      "imgUrl": "8.jpg",
+      "description": "Mỏng nhẹ phù hợp cho sinh viên",
+      "price": "14.990.000",
+      "quantity": "100",
+      "category": "Laptop",
+      "id": "kp_4_8xMq"
+    },
+    {
+      "name": "Tai nghe beat 1163",
+      "imgUrl": "13.jpg",
+      "description": "tai nghe blutooth tiện lợi",
+      "price": "300.000",
+      "quantity": "30",
+      "category": "Phụ kiện",
+      "id": "F_xzu103L"
+    }
+  ],
+  "categories": [
+    {
+      "name": "phone",
+      "id": "9nBCgCsnD"
+    },
+    {
+      "name": "laptop",
+      "id": "qVxieo9ka"
+    },
+    {
+      "name": "camera",
+      "id": "zh7YcCXT-"
+    },
+    {
+      "name": "PC",
+      "id": "XaF5dCVnZ"
+    },
+    {
+      "name": "Ốp điện thoại",
+      "id": "-_m6_TAr2"
+    }
+  ],
+  "bills": [
+    {
+      "date": "02-02-2020",
+      "username": "Trần Thị Tom",
+      "id": "0HDsWChIe"
+    },
+    {
+      "date": "03-02-2020",
+      "username": "Trần Việt Tiến",
+      "id": "GrTXR4oJ8"
+    },
+    {
+      "date": "10-2-2020",
+      "username": "Trần Văn Tài",
+      "id": "dGVJrwgvN"
+    }
+  ],
+  "accounts": [
+    {
+      "name": "tran",
+      "password": "123456",
+      "id": "mKX1OLt5k"
+    },
+    {
+      "name": "tien39",
+      "password": "chudu@abc",
+      "id": "6j4OHAB7p"
+    },
+    {
+      "name": "dfdfd",
+      "password": "dfdf",
+      "id": "I11V9VkVq"
+    },
+    {
+      "name": "ChuEm",
+      "password": "jdlkfdjf",
+      "id": "PmWc-MT4b"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Tran A",
+      "email": "tran123@gmail.com",
+      "password": "12345"
+    }
+  ]
+}
