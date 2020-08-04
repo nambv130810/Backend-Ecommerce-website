@@ -5,7 +5,7 @@ block content
         form(action="/products/search", method="GET")
             input(type="text" name='q' placeholder="Tên sản phẩm")
             button.btn.btn-info(type='submit') Tìm kiếm
-        table.table
+        table.table.table-striped.table-bordered
                 thead
                     tr
                         th Mã hóa đơn
@@ -25,5 +25,5 @@ block content
                                 img(src= products.filter(item => item._id == bill.product_id)[0].imgUrl, alt='Product pics', width='40', height='40')
                             td= bill.quantity
                             td= bill.price
-                            td= bill.price * bill.quantity + ' vnd'
-        div Tổng tiền: #{bills.reduce((total, item) => total + item.quantity * item.price, 0)} vnd
+                            td= bill.price * bill.quantity + ' vnd'             
+        div(style="font-weight: bold;") Tổng tiền: #{bills.reduce((total, item) => total + item.quantity * item.price, 0)} vnd

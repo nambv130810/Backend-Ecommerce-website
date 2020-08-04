@@ -6,7 +6,7 @@ block content
         form(action="/categories/search", method="GET")
             input(type="text" name='q' placeholder="Tên danh mục")
             button.btn.btn-info(type='submit') Tìm kiếm
-        table.table
+        table.table.table-striped.table-bordered(style='width:100%')
             thead
                 tr
                     th Mã danh mục

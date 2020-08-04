@@ -89,7 +89,7 @@ module.exports.patchUpdate = async function(req, res) {
     try {
         var updatedProd = await Product.updateOne(
             {
-                _id: req.params.idzz
+                _id: req.params.id
             },
             {
                 $set: {

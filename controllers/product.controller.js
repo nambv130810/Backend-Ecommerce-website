@@ -8,10 +8,15 @@ const { json } = require('body-parser');
 module.exports.index = async function(req, res) {
     var products = await Product.find();
     var categories = await Category.find();
-
+    var page = parseInt(req.query.page) || 1;
+    var limit = 5;
+    var start = (page-1) * limit;
+    var end = page * limit;
+    var pages  = Math.ceil(products.length/5);
     res.render('products/index', {
-        products: products,
-        categories: categories
+        products: products.slice(start, end),
+        categories: categories,
+        pages: pages+1
     });
 };
 

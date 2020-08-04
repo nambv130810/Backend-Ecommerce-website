@@ -7,9 +7,14 @@ var BillDetail = require('../models/bill-detail.model');
 
 module.exports.index = async function(req, res) {
     var bills = await Bill.find();
-
+    var page = parseInt(req.query.page) || 1;
+    var limit = 5;
+    var start = (page-1) * limit;
+    var end = page * limit;
+    var pages  = Math.ceil(bills.length/5);
     res.render('bills/index', {
-        bills: bills
+        bills: bills.slice(start, end),
+        pages: pages + 1
     });
 };
 

@@ -11,8 +11,8 @@ block content
                         label Tên sản phẩm
                             input.form-control(type="text", name="name")
                     div
-                        label Ảnh  
-                            input(type="file", name="imgUrl")
+                        label Link ảnh 
+                            input.form-control(type="text", name="imgUrl")
                     div
                         label Mô tả
                             input.form-control(type="text", name="description")
@@ -24,8 +24,8 @@ block content
                             input.form-control(type="text", name="quantity")
                     div.mb-2    
                         label.mr-2(for='cate_id') Chọn danh mục:  
-                        select#cars(name='cate_id')
+                        select#cars.p-1(name='cate_id')
                             each cate in categories
                                 option(value= cate.cate_id)= cate.name
-                    button.btn.btn-info Thêm
+                    button.btn.btn-info.px-3.mt-3 Thêm
             .card-footer 

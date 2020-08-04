@@ -6,13 +6,13 @@ block content
         form(action="/users/search", method="GET")
             input(type="text" name='q' placeholder="Tên người dùng")
             button.btn.btn-info(type='submit') Tìm kiếm
-        table.table
+        table.table.table-striped.table-bordered(style='width:100%')
             thead
                 tr
-                    th Mã người dùng
-                    th Tên người dùng
+                    th Mã khách hàng
+                    th Tên khách hàng
                     th Email
-                    th Mật khẩu
+                    //- th Mật khẩu
                     th Địa chỉ
                     th Điện thoại
                     th Các thao tác
@@ -22,10 +22,16 @@ block content
                         td= user.id.slice(0, 6) + '...'
                         td= user.name
                         td= user.email.slice(0, 6) + '...'
-                        td= user.password
-                        td= user.address
+                        //- td= user.password
+                        td= user.address.slice(0, 25) + '...'
                         td= user.phone
                         td
                             a.btn.btn-success.mr-1(href="/users/" + user.id, role='button') Xem
                             a.btn.btn-warning.mr-1(href="/users/" + user.id + "/edit", role='button') Sửa
                             a.btn.btn-danger.mr-1(href="/users/" + user.id + "/delete", role='button') Xóa
+        .container(style="position: absolute; top: 90%")
+            - var page = 1;
+            ul.pagination(style="justify-content: center;")
+                while page < pages
+                    li.page-item
+                        a.page-link(href='/users?page='+ page)= page++              

@@ -2,8 +2,14 @@ var User = require('../models/user.model');
 
 module.exports.index = async function(req, res ) {
     var users = await User.find();
+    var page = parseInt(req.query.page) || 1;
+    var limit = 5;
+    var start = (page-1) * limit;
+    var end = page * limit;
+    var pages  = Math.ceil(users.length/5);
     res.render('users/index', {
-        users: users
+        users: users.slice(start, end),
+        pages: pages+1
     })
 };
 module.exports.search = async function(req, res) {

@@ -14,7 +14,7 @@ module.exports.postLogin = function(req, res) {
     if(!user) {
         res.render('auth/login', {
             errors: [
-                'User does not exists'
+                'Tên đăng nhập không tồn tại'
             ],
             values: req.body
         });
@@ -23,7 +23,7 @@ module.exports.postLogin = function(req, res) {
     if(user.password !== password) {
         res.render('auth/login', {
             errors: [
-                'Wrong password'
+                'Mật khẩu không khớp'
             ],
             values: req.body
         });

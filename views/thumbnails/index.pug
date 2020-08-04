@@ -1,0 +1,5 @@
+extends ../layouts/common
+block content
+    p.title Quản lý thumbnails
+    each imgUrl in thumbnails
+        img(src= imgUrl.thumbnailUrl alt="" width="40px")

@@ -15,12 +15,15 @@ var billRoute = require('./routes/bill.route');
 var accountRoute = require('./routes/account.route');
 var authRoute = require('./routes/auth.route');
 var userRoute = require('./routes/user.route');
+var thumbnailRoute = require('./routes/thumbnail.route');
+var homeRoute = require('./routes/home.route');
 
 var apiProdRoute = require('./api/routes/product.route');
 const { reset } = require('nodemon');
 var apiBillRoute = require('./api/routes/bill.route');
 var apiUserRoute = require('./api/routes/user.route');
 var apiBillDetailRoute = require('./api/routes/billDetail.route');
+var apiThumbnailRoute = require('./api/routes/thumbnail.route');
 
 
 const app = express();
@@ -46,9 +49,7 @@ app.use(cookieParser());
 
 
 
-app.get('/', function(req, res) {
-    res.render('home');
-})
+app.use('/', homeRoute);
 // products routes
 app.use('/products', productRoute);
 
@@ -67,6 +68,8 @@ app.use('/users', userRoute);
 //authenication route
 app.use('/auth', authRoute);
 
+// thumbnails images route
+app.use('/thumbnails', thumbnailRoute);
 
 //---------- products api route
 app.use('/api/products',cors(), apiProdRoute);
@@ -76,6 +79,8 @@ app.use('/api/bills', cors(), apiBillRoute);
 app.use('/api/users', cors(), apiUserRoute);
 
 app.use('/api/bill_detail', cors(), apiBillDetailRoute);
+
+app.use('/api/thumbnails', cors(), apiThumbnailRoute);
 
 // app's listening
 app.listen(port, function() {

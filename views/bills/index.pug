@@ -2,11 +2,11 @@ extends ../layouts/common
 block content
     .main
         p.title Quản lý hóa đơn
-        a(href="/bills/create") Thêm hóa đơn mới
+        //- a(href="/bills/create") Thêm hóa đơn mới
         form(action="/bills/search", method="GET")
-            input(type="text" name='q' placeholder="ngày lập")
+            input(type="text" name='q' placeholder="Ngày lập")
             button.btn.btn-info Tìm kiếm
-        table.table
+        table.table.table-striped.table-bordered(style='width:100%')
                 thead
                     tr
                         th Mã hóa đơn
@@ -23,3 +23,9 @@ block content
                                 a.btn.btn-success.mr-1(href="/bills/" + bill.id, role='button') Xem
                                 a.btn.btn-warning.mr-1(href="/bills/" + bill.id + "/edit", role='button') Sửa
                                 a.btn.btn-danger.mr-1(href="/bills/" + bill.id + "/delete", role='button') Xóa
+        .container(style="position: absolute; top: 90%")
+            - var page = 1;
+            ul.pagination(style="justify-content: center;")
+                while page < pages
+                    li.page-item
+                        a.page-link(href='/bills?page='+ page)= page++
