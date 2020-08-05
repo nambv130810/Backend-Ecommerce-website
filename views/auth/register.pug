@@ -1,0 +1,22 @@
+extends ../layouts/common
+block content
+    .main_container
+        if errors
+            each error in errors
+                .alert.alert-danger= error
+        .center
+            h1 Đăng ký
+            form(action='/register', method='POST')
+                .text_field
+                    input(type='email', required='', name="email", value=values ? values.email : '')
+                    span
+                    label Email
+                .text_field
+                    input(type='password', required='', name="password", value=values ? values.password:'')
+                    span
+                    label Mật khẩu
+                
+                input(type='submit', value='Đăng ký')
+                .sign_up
+                    | Đã có tài khoản 
+                    a(href='/login') Đăng nhập

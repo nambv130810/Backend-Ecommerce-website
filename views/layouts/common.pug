@@ -24,5 +24,13 @@ html
                     a.nav-link(href='/products') Sản phẩm
                 li.nav-item
                     a.nav-link(href='/bills') Hóa đơn
-            a(href="/auth/login") Đăng nhập            
+                li.nav-item
+                    a.nav-link(href='/accounts') Tài khoản
+            //- a(href="/login") Đăng nhập/
+            //- a(href="/logout") Đăng xuất 
+            if(status)
+                a(href="/logout") Đăng xuất
+            else
+                a(href="/login") Đăng nhập &nbsp
+                a(href="/register") Đăng ký
         block content

@@ -13,7 +13,7 @@ module.exports.search = async function(req, res) {
     var q = req.query.q;
     var accounts = await Account.find();
     var matchedAcc = accounts.filter(function(acc) {
-        return acc.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
+        return acc.email.toLowerCase().indexOf(q.toLowerCase()) !== -1;
     });
     
     res.render('accounts/index', {
@@ -37,7 +37,7 @@ module.exports.view = async function(req, res) {
 
 module.exports.postCreate = async function(req, res) {
     var account = new Account({
-        name: req.body.name,
+        email: req.body.email,
         password: req.body.password
     });
 
@@ -62,7 +62,7 @@ module.exports.patchEdit = async function(req, res) {
         var updatedAcc = await Account.updateOne(
             { _id: req.params.id },
             { $set: {
-                name: req.body.name,
+                email: req.body.email,
                 password: req.body.password
             }}
         );

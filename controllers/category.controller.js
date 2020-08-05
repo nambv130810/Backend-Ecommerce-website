@@ -1,8 +1,5 @@
-var db = require('../database/db');
-var shortid = require('shortid');
-
 var Category = require('../models/category.model');
-const Product = require('../models/product.model');
+var Product = require('../models/product.model');
 
 module.exports.index = async function(req, res) {
     var categories = await Category.find();

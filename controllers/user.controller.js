@@ -6,7 +6,7 @@ module.exports.index = async function(req, res ) {
     var limit = 5;
     var start = (page-1) * limit;
     var end = page * limit;
-    var pages  = Math.ceil(users.length/5);
+    var pages  = Math.ceil(users.length/5); 
     res.render('users/index', {
         users: users.slice(start, end),
         pages: pages+1

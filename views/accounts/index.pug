@@ -6,20 +6,21 @@ block content
         form(action="/accounts/search", method="GET")
             input(type="text" name='q' placeholder="Tên tài khoản")
             button.btn.btn-info(type='submit') Tìm kiếm
-        table.table
+        table.table.table-striped.table-bordered(style='width:100%')
             thead
                 tr
                     th Mã khách hàng
-                    th Tên tài khoản
+                    th Email
                     th Mật khẩu
                     th Các thao tác
             tbody
                 each acc in accounts
                     tr
                         td= acc.id.slice(0, 6) + '...'
-                        td= acc.name
-                        td= acc.password
+                        td= acc.email
+                        td= acc.password.slice(0, 15) + '...'
                         td
                             a.btn.btn-success.mr-1(href="/accounts/" + acc.id, role='button') Xem
                             a.btn.btn-warning.mr-1(href="/accounts/" + acc.id + "/edit", role='button') Sửa
                             a.btn.btn-danger.mr-1(href="/accounts/" + acc.id + "/delete", role='button') Xóa
+                            a.btn.btn-danger.mr-1(href="/accounts/" + acc.id + "/delete", role='button') Phân quyền

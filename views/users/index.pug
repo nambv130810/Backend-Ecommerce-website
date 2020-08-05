@@ -3,8 +3,8 @@ block content
     p.title Quản lý khách hàng
     .account-content
         a(href="/users/create") Tạo tài khoản mới
-        form(action="/users/search", method="GET")
-            input(type="text" name='q' placeholder="Tên người dùng")
+        form.d-flex(action="/users/search", method="GET")
+            input.form-control(type="text" name='q' placeholder="Tên người dùng" style="width: 20%; ")
             button.btn.btn-info(type='submit') Tìm kiếm
         table.table.table-striped.table-bordered(style='width:100%')
             thead
@@ -34,4 +34,4 @@ block content
             ul.pagination(style="justify-content: center;")
                 while page < pages
                     li.page-item
-                        a.page-link(href='/users?page='+ page)= page++              
+                        a.page-link(href='/users?page='+ page)= page++

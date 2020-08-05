@@ -1,21 +1,21 @@
 var express = require('express');
 var router = express.Router();
 var controller = require('../controllers/category.controller');
+var authMiddleware = require('../middlewares/auth.middleware');
+router.get('/',authMiddleware.requireAuth, controller.index);
 
-router.get('/', controller.index);
+router.get('/search', authMiddleware.requireAuth,controller.search);
 
-router.get('/search', controller.search);
+router.get('/:id/edit',authMiddleware.requireAuth, controller.edit);
 
-router.get('/:id/edit', controller.edit);
+router.post('/:id/edit', authMiddleware.requireAuth,controller.patchEdit);
 
-router.post('/:id/edit', controller.patchEdit);
+router.get('/:id/delete',authMiddleware.requireAuth, controller.delete);
 
-router.get('/:id/delete', controller.delete);
+router.get('/create', authMiddleware.requireAuth,controller.create);
 
-router.get('/create', controller.create);
+router.get('/:id',authMiddleware.requireAuth, controller.view);
 
-router.get('/:id', controller.view);
-
-router.post('/create', controller.postCreate);
+router.post('/create',authMiddleware.requireAuth, controller.postCreate);
 
 module.exports = router;
