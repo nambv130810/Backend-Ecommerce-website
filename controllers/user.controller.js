@@ -56,6 +56,7 @@ module.exports.delete = async function(req, res) {
     res.redirect('/users');
 };
 
+
 module.exports.create = function(req, res) {
     res.render('users/create')
 };

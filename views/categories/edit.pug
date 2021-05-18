@@ -1,13 +1,22 @@
 extends ../layouts/common
 block content
-    .container
-        .card.add-form
-            .card-header 
-                h5 Sửa thông tin danh mục
-            .card-body
-                form.addProdForm(action="/categories/" + category.id + "/edit", method="POST")
-                    div
-                        label Tên danh mục
-                            input.form-control(type="text", name="name", value= category.name)
-                    button.btn.btn-info Cập nhật
-            .card-footer 
+    //- .container
+    //-     .card.add-form
+    //-         .card-header 
+    //-             h5 Sửa thông tin danh mục
+    //-         .card-body
+    //-             form.addProdForm(action="/categories/" + category.id + "/edit", method="POST")
+    //-                 div
+    //-                     label Tên danh mục
+    //-                         input.form-control(type="text", name="name", value= category.name)
+    //-                 button.btn.btn-info Cập nhật
+    //-         .card-footer 
+    form.get_in_touch(action="/categories/" + category.id + "/edit", method="POST")
+        h1.title Sửa danh mục
+        .container
+            .contact-form.row
+                .form-field.col-lg-12
+                    input#name.input-text(type='text', required='', name="name", value= category.name)
+                    label.label(for='name') Tên danh mục
+                .form-field.col-lg-12(style="text-align: center;")
+                    input.submit-btn(type='submit', value='Cập nhật')

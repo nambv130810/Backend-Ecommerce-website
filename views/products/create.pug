@@ -1,31 +1,101 @@
 extends ../layouts/common
 block content
     
+    //- .container
+    //-     .card.add-form
+    //-         .card-header 
+    //-             h5 Thêm sản phẩm mới
+    //-         .card-body
+    //-             if errors
+    //-                 .alert.alert-danger= errors[0]
+    //-             form.addProdForm(action="/products/create", method="POST")
+    //-                 div
+    //-                     label Tên sản phẩm
+    //-                         input.form-control(type="text", name="name")
+    //-                 div
+    //-                     label Link ảnh 
+    //-                         input.form-control(type="text", name="imgUrl")
+    //-                 div
+    //-                     label Mô tả
+    //-                         input.form-control(type="text", name="description")
+    //-                 div
+    //-                     label Giá
+    //-                         input.form-control(type="text", name="price")
+    //-                 div
+    //-                     label Số lượng
+    //-                         input.form-control(type="text", name="quantity")
+    //-                 div.mb-2    
+    //-                     label.mr-2(for='cate_id') Chọn danh mục:  
+    //-                     select#cars.p-1(name='cate_id')
+    //-                         each cate in categories
+    //-                             option(value= cate.cate_id)= cate.name
+    //-                 button.btn.btn-info.px-3.mt-3 Thêm
+    //-         .card-footer 
+    //- form.get_in_touch(action="/products/create", method="POST", enctype="multipart/form-data")
+    //-     h1.title Thêm sản phẩm
+    //-     .container
+    //-         .contact-form.row
+    //-             if errors
+    //-                 .alert.alert-danger= errors[0]
+    //-             .form-field.col-lg-6
+    //-                 input#name.input-text(type='text', required='', name="name")
+    //-                 label.label(for='name') Tên sản phẩm
+    //-             .form-field.col-lg-6
+    //-                 input#email.input-text.real-btn(type='file', required='',name="imgUrl" hidden="hidden")
+    //-                 div.custom-btn(style="border-bottom: 2px solid #5543ca; margin-top: 12px;width: 100px, height: 12px; font-size: 14px;") Chưa ảnh nào được chọn
+    //-                 label.label(for='email') Ảnh 
+    //-             .form-field.col-lg-12
+    //-                 input#email2.input-text.real-btn(type='file', required='',name="thumbnailUrl" multiple)
+    //-                 label.label(for='email2') Ảnh thumbnail
+    //-             .form-field.col-lg-12
+    //-                 input#message.input-text(type='text', required='', name="description")
+    //-                 label.label(for='message') Mô tả
+    //-             .form-field.col-lg-6
+    //-                 input#company.input-text(type='number',min=0, required='', name="price")
+    //-                 label.label(for='company') Giá
+    //-             .form-field.col-lg-6
+    //-                 input#company.input-text(type='number',min=0, required='', name="salePrice")
+    //-                 label.label(for='company') Giá khuyến mại
+    //-             .form-field.col-lg-6
+    //-                 input#phone.input-text(type='number',min=0, required='', name="quantity")
+    //-                 label.label(for='phone') Số lượng
+    //-             form.select-box(style="margin-left: 13px;")
+    //-                 .form-group
+    //-                     label(for='cate_id', style="color: #5543ca;") Chọn tên danh mục:
+    //-                     select#cate_id.form-control(name='cate_id')
+    //-                         each cate in categories
+    //-                             option(value= cate.cate_id)= cate.name
+    //-             .form-field.col-lg-12
+    //-                 input.submit-btn(type='submit', value='Thêm')
     .container
-        .card.add-form
-            .card-header 
-                h5 Thêm sản phẩm mới
-            .card-body
-                form.addProdForm(action="/products/create", method="POST")
-                    div
-                        label Tên sản phẩm
-                            input.form-control(type="text", name="name")
-                    div
-                        label Link ảnh 
-                            input.form-control(type="text", name="imgUrl")
-                    div
-                        label Mô tả
-                            input.form-control(type="text", name="description")
-                    div
-                        label Giá
-                            input.form-control(type="text", name="price")
-                    div
-                        label Số lượng
-                            input.form-control(type="text", name="quantity")
-                    div.mb-2    
-                        label.mr-2(for='cate_id') Chọn danh mục:  
-                        select#cars.p-1(name='cate_id')
-                            each cate in categories
-                                option(value= cate.cate_id)= cate.name
-                    button.btn.btn-info.px-3.mt-3 Thêm
-            .card-footer 
+        h2 Thêm sản phẩm
+        if errors
+            .alert.alert-danger= errors[0]
+        form(action="/products/create", method="POST", enctype="multipart/form-data")
+            .form-group
+                label(for='name') Tên sản phẩm:
+                input#name.form-control(type='text', placeholder='Nhập tên sản phẩm', name='name')
+            .custom-file.mb-3
+                input#customFile.custom-file-input(type='file', name='imgUrl')
+                label.custom-file-label(for='customFile') Chọn ảnh
+            .custom-file.mb-3
+                input#customFile.custom-file-input(type='file', name='thumbnailUrl', multiple)
+                label.custom-file-label(for='customFile') Chọn ảnh thumbnails
+            .form-group
+                label(for='comment') Mô tả:
+                textarea#comment.form-control(rows='5', name='description')
+            .form-group
+                label(for='pwd') Giá:
+                input#pwd.form-control(type='number', placeholder='', name='price')
+            .form-group
+                label(for='pwd') Giá khuyến mãi:
+                input#pwd.form-control(type='number', placeholder='', name='salePrice')
+            .form-group
+                label(for='pwd') Số lượng:
+                input#pwd.form-control(type='number', placeholder='', name='quantity')
+            .form-group
+                label(for="cate_id") Danh mục:
+                select#cate_id.custom-select.mb-3(name='cate_id')
+                    each cate in categories
+                        option(value= cate.cate_id)= cate.name
+            button.btn.btn-primary(type='submit') Thêm

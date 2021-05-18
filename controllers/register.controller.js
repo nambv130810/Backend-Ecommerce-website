@@ -15,9 +15,8 @@ module.exports.postRegister = async function(req, res) {
         });
         console.log(account);
         var newAccount = await account.save();
-        console.log(newAccount);
         res.redirect('/login');
-    }catch{
+    }catch {
         res.redirect('/register');
     }
     

@@ -2,6 +2,9 @@ require('dotenv').config();
 
 
 const express = require('express');
+var multer  = require('multer');
+var upload = multer({dest: __dirname + '/uploads/images'});
+
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
@@ -71,6 +74,7 @@ app.set('views', './views');
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(express.static('public'));
+app.use(express.static('uploads'));
 app.use(cookieParser());
 app.use(flash());
 app.use(session({

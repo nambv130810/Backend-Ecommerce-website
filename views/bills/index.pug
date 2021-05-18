@@ -20,9 +20,9 @@ block content
                             td= bill.date
                             td= bill.user_id
                             td
-                                a.btn.btn-success.mr-1(href="/bills/" + bill.id, role='button') Xem
-                                a.btn.btn-warning.mr-1(href="/bills/" + bill.id + "/edit", role='button') Sửa
-                                a.btn.btn-danger.mr-1(href="/bills/" + bill.id + "/delete", role='button') Xóa
+                                a.btn.btn-success.mr-1(href="/bills/" + bill.id, role='button') Xem chi tiết
+                                //- a.btn.btn-warning.mr-1(href="/bills/" + bill.id + "/edit", role='button') Sửa
+                                //- a.btn.btn-danger.mr-1(href="/bills/" + bill.id + "/delete", role='button') Xóa
         .container(style="position: absolute; top: 90%")
             - var page = 1;
             ul.pagination(style="justify-content: center;")

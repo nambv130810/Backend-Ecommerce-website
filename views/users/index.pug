@@ -2,7 +2,7 @@ extends ../layouts/common
 block content
     p.title Quản lý khách hàng
     .account-content
-        a(href="/users/create") Tạo tài khoản mới
+        //- a(href="/users/create") Tạo tài khoản mới
         form.d-flex(action="/users/search", method="GET")
             input.form-control(type="text" name='q' placeholder="Tên người dùng" style="width: 20%; ")
             button.btn.btn-info(type='submit') Tìm kiếm
@@ -27,7 +27,7 @@ block content
                         td= user.phone
                         td
                             a.btn.btn-success.mr-1(href="/users/" + user.id, role='button') Xem
-                            a.btn.btn-warning.mr-1(href="/users/" + user.id + "/edit", role='button') Sửa
+                            //- a.btn.btn-warning.mr-1(href="/users/" + user.id + "/edit", role='button') Sửa
                             a.btn.btn-danger.mr-1(href="/users/" + user.id + "/delete", role='button') Xóa
         .container(style="position: absolute; top: 90%")
             - var page = 1;

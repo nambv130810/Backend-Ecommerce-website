@@ -3,30 +3,8 @@ const Product = require('../../models/product.model');
 const { remove } = require('../../models/product.model');
 
 module.exports.index = async function(req, res) {  
-    // var page = parseInt(req.query.page);
-    // var limit = parseInt(req.query.limit);
-
-    // var startIndex = (page - 1) * limit;
-    // var endIndex = page * limit;
-    // var results = {};
-    //var prodName = req.body.name;
-    
     try {
         var products = await Product.find();
-        // if(endIndex < products.length) {
-        //     results.next = {
-        //         page: page + 1,
-        //         limit: limit
-        //     }
-        // }
-        // if(startIndex > 0) {
-        //     results.prev = {
-        //         page: page - 1,
-        //         limit: limit
-        //     }
-        // }
-        // results.paginatedProds = await Product.find().limit(limit).skip(startIndex).exec();
-        //var results = await Product.find({ name: prodName })
         res.json(products);
     }catch(err) {
         res.json({ message: err });
@@ -49,6 +27,7 @@ module.exports.postCreate = async function(req, res) {
             imgUrl: req.body.imgUrl,
             description: req.body.description,
             price: req.body.price,
+            salePrice: req.body.salePrice,
             quantity: req.body.quantity,
             category: req.body.category
         }

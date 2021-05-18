@@ -3,17 +3,28 @@ block content
     if errors
         each error in errors
             .alert.alert-danger= error
-    .container
-        .card.add-form
-            .card-header Thêm tài khoản mới
-            .card-body
-                form(action="/accounts/create", method="POST")
-                    div
-                        label Tên tài khoản
-                            input.form-control(type="text", name="name", value=values ? values.name : '')
-                    div
-                        label Mật khẩu
-                            input.form-control(type="text", name="password" value=values ? values.status : '')
-                    button.btn.btn-info Thêm
-            .card-footer 
-    
+    //- .container
+    //-     .card.add-form
+    //-         .card-header Thêm tài khoản mới
+    //-         .card-body
+    //-             form(action="/accounts/create", method="POST")
+    //-                 div
+    //-                     label Tên tài khoản
+    //-                         input.form-control(type="text", name="name", value=values ? values.name : '', required)
+    //-                 div
+    //-                     label Mật khẩu
+    //-                         input.form-control(type="text", name="password" value=values ? values.status : '', required)
+    //-                 button.btn.btn-info Thêm
+    //-         .card-footer 
+    form.get_in_touch(action="/accounts/create", method="POST")
+        h1.title Tạo tài khoản
+        .container
+            .contact-form.row
+                .form-field.col-lg-12
+                    input#email.input-text(type='email', required='', name="email", value=values ? values.name : '')
+                    label.label(for='email') Email
+                .form-field.col-lg-12
+                    input#password.input-text(type='password', required='',name="password")
+                    label.label(for='password') Mật khẩu
+                .form-field.col-lg-12(style="text-align: center;")
+                    input.submit-btn(type='submit', value='Thêm')

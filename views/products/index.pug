@@ -23,7 +23,7 @@ block content
                             td= prod.id.slice(0, 6) + '...'
                             td= prod.name.slice(0, 8) + '...'
                             td
-                                img(src='' + prod.imgUrl width="40px")
+                                img(src= prod.imgUrl width="40px")
                             td= prod.description.slice(0, 6) + '...'
                             td= prod.price
                             td= prod.quantity
@@ -32,7 +32,7 @@ block content
                                 a.btn.btn-success.mr-1(href="/products/" + prod.id, role='button') Xem
                                 a.btn.btn-warning.mr-1(href="/products/" + prod.id + "/edit", role='button') Sửa
                                 a.btn.btn-danger.mr-1(href="/products/" + prod.id + "/delete", role='button') Xóa
-        .container(style="position: absolute; top: 90%")
+        .container
             - var page = 1;
             ul.pagination(style="justify-content: center;")
                 while page < pages

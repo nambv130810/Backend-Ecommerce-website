@@ -44,7 +44,6 @@ module.exports.view = async function(req, res) {
     //var billDetail = await BillDetail.find();
 
     var products = await Product.find({});
-
     res.render('bills/view', {
         bills: billDetail,
         products: products,

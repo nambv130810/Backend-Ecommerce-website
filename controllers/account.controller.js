@@ -1,5 +1,6 @@
 
 var Account = require('../models/account.model');
+var bcrypt = require('bcrypt');
 
 module.exports.index = async function(req, res) {
     var accounts = await Account.find();
@@ -59,11 +60,12 @@ module.exports.edit = async function(req, res) {
 
 module.exports.patchEdit = async function(req, res) {
     try {
+        var hashedPassword = await bcrypt.hash(req.body.password, 10);
         var updatedAcc = await Account.updateOne(
             { _id: req.params.id },
             { $set: {
                 email: req.body.email,
-                password: req.body.password
+                password: hashedPassword
             }}
         );
         res.redirect('/accounts');
