@@ -8,7 +8,8 @@ var upload = multer({dest: __dirname + '/uploads/images'});
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 var cors = require('cors');
 
